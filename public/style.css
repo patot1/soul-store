@@ -1,0 +1,41 @@
+/* الخلفية المتحركة المتقدمة */
+.animated-bg {
+    position: fixed;
+    top: 0; left: 0; width: 100vw; height: 100vh;
+    z-index: -1;
+    background: linear-gradient(135deg, #02040a, #0a1128, #050914);
+    background-size: 400% 400%;
+    animation: gradientShift 15s ease infinite;
+    overflow: hidden;
+}
+
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(100px);
+    opacity: 0.4;
+    animation: float 12s infinite ease-in-out alternate;
+}
+
+.orb-1 { width: 400px; height: 400px; background: #00d2ff; top: -10%; left: -10%; }
+.orb-2 { width: 500px; height: 500px; background: #5865F2; bottom: -20%; right: -10%; animation-delay: -5s; }
+.orb-3 { width: 300px; height: 300px; background: #3a7bd5; top: 40%; left: 40%; animation-delay: -8s; }
+
+@keyframes float {
+    0% { transform: translate(0, 0) scale(1); }
+    100% { transform: translate(50px, 80px) scale(1.1); }
+}
+
+/* تنسيق أزرار تسجيل الدخول الجديدة */
+.social-logins { display: flex; flex-direction: column; gap: 10px; margin-bottom: 20px; }
+.oauth-btn { display: flex; justify-content: center; align-items: center; gap: 10px; padding: 12px; border-radius: 12px; font-weight: bold; color: white; transition: 0.3s; font-size: 1.1rem; }
+.discord-btn { background: #5865F2; }
+.discord-btn:hover { background: #4752C4; box-shadow: 0 0 15px rgba(88, 101, 242, 0.4); }
+.google-btn { background: #ffffff; color: #333; border: 1px solid #ddd; }
+.google-btn:hover { background: #f1f1f1; box-shadow: 0 0 15px rgba(255, 255, 255, 0.3); }
