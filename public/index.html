@@ -68,7 +68,6 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* الهيكل العلوي (Header) */
         header { padding: 3rem 2rem; text-align: center; position: relative; animation: fadeUp 0.8s ease-out forwards; }
 
         .user-bar { position: absolute; top: 20px; left: 20px; z-index: 10; }
@@ -79,7 +78,6 @@
         }
         .login-btn:hover { transform: translateY(-3px); box-shadow: 0 6px 20px rgba(88, 101, 242, 0.6); }
 
-        /* تنسيق بروفایل المستخدم مع الـ ID */
         .user-profile { display: flex; align-items: center; gap: 12px; background: rgba(255,255,255,0.05); padding: 8px 18px; border-radius: 30px; border: 1px solid var(--glass-border); backdrop-filter: blur(5px); }
         .avatar-img { width: 42px; height: 42px; border-radius: 50%; border: 2px solid var(--primary-glow); object-fit: cover; }
         .logout-btn { background: transparent; border: none; color: #ff4757; cursor: pointer; font-size: 1.2rem; transition: 0.3s; margin-right: 5px; }
@@ -89,7 +87,6 @@
         .logo-text { font-size: 3.5rem; font-weight: 800; text-shadow: 0 0 20px rgba(0, 210, 255, 0.5); letter-spacing: 2px; }
         .subtitle { color: var(--text-muted); margin-top: 10px; font-size: 1.2rem; }
 
-        /* الأقسام والمنتجات */
         .container { max-width: 1200px; margin: 0 auto; padding: 2rem; position: relative; z-index: 1; }
         
         .products-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2.5rem; margin-bottom: 4rem; }
@@ -111,29 +108,6 @@
         .product-card:hover .product-icon { transform: scale(1.1); }
         .product-title { font-size: 1.8rem; font-weight: 700; }
 
-        /* قسم التقييمات */
-        .reviews-section {
-            background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: 24px;
-            padding: 3rem; margin-bottom: 4rem; backdrop-filter: blur(15px);
-            opacity: 0; animation: fadeUp 0.8s ease-out 0.5s forwards;
-        }
-        .reviews-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 1rem; }
-        .reviews-header h2 { font-size: 2rem; color: var(--primary-glow); text-shadow: 0 0 10px rgba(0,210,255,0.3); }
-        
-        .reviews-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-bottom: 2rem; }
-        .review-card { background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.05); padding: 1.5rem; border-radius: 16px; transition: 0.3s; }
-        .review-card:hover { transform: translateY(-5px); border-color: var(--primary-glow); }
-        .review-stars { color: #FFD700; margin-bottom: 10px; font-size: 1.1rem; }
-        .review-user { font-weight: bold; margin-bottom: 5px; color: var(--primary-glow); }
-        .review-text { color: var(--text-muted); font-size: 1rem; line-height: 1.5; }
-        
-        .add-review-box { display: flex; gap: 10px; margin-top: 2rem; }
-        .review-input { flex: 1; background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border); padding: 12px 20px; border-radius: 12px; color: white; outline: none; font-size: 1rem; }
-        .review-input:focus { border-color: var(--primary-glow); }
-        .btn-submit-review { background: linear-gradient(45deg, var(--primary-glow), var(--secondary-glow)); color: white; border: none; padding: 12px 25px; border-radius: 12px; font-weight: bold; cursor: pointer; transition: 0.3s; }
-        .btn-submit-review:hover { box-shadow: 0 0 15px rgba(0,210,255,0.5); }
-
-        /* النوافذ المنبثقة */
         .page-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); backdrop-filter: blur(15px); z-index: 1000; display: flex; justify-content: center; align-items: center; opacity: 0; pointer-events: none; transition: 0.3s ease; }
         .page-overlay.active { opacity: 1; pointer-events: auto; }
 
@@ -184,7 +158,6 @@
         .badges { display: flex; flex-direction: column; gap: 8px; margin-bottom: 20px; }
         .badge { padding: 8px 12px; border-radius: 10px; font-size: 1rem; font-weight: bold; width: fit-content; display: flex; align-items: center; gap: 8px; }
         .badge-asia { background: linear-gradient(45deg, #cc0052, #ff1a75); color: #fff; }
-        .badge-card { background: linear-gradient(45deg, #00529b, #0070ba); color: #fff; }
         
         .pay-btn-whatsapp { 
             background: linear-gradient(45deg, #25D366, #128C7E); color: white; border: none; 
@@ -235,27 +208,15 @@
     </header>
 
     <main class="container">
-        <div class="products-grid">
+        <!-- شبكة المنتجات -->
+        <div class="products-grid" id="mainProductsGrid">
             <div class="product-card" onclick="openModal('pubg')"><i class="fa-solid fa-parachute-box product-icon"></i><h3 class="product-title">شدات ببجي</h3></div>
             <div class="product-card" onclick="openModal('roblox')"><i class="fa-solid fa-gamepad product-icon"></i><h3 class="product-title">روبوكس</h3></div>
             <div class="product-card" onclick="openModal('minecraft')"><i class="fa-solid fa-cubes product-icon"></i><h3 class="product-title">ماين كرافت</h3></div>
             <div class="product-card" onclick="openModal('gemini')"><i class="fa-solid fa-robot product-icon"></i><h3 class="product-title">اشتراك Gemini</h3></div>
             <div class="product-card" onclick="openModal('boosts')"><i class="fa-solid fa-rocket product-icon"></i><h3 class="product-title">بوستات ديسكورد</h3></div>
             <div class="product-card" onclick="openModal('nitro')"><i class="fa-brands fa-discord product-icon"></i><h3 class="product-title">ديسكورد نايترو</h3></div>
-        </div>
-
-        <!-- قسم التقييمات -->
-        <div class="reviews-section">
-            <div class="reviews-header">
-                <h2><i class="fa-solid fa-star" style="color: gold;"></i> آراء مجتمعنا</h2>
-            </div>
-            
-            <div class="reviews-grid" id="reviewsContainer"></div>
-
-            <div class="add-review-box">
-                <input type="text" id="reviewTextInput" class="review-input" placeholder="اكتب تقييمك لخدمات المتجر هنا...">
-                <button class="btn-submit-review" onclick="addReview()"><i class="fa-solid fa-paper-plane"></i> نشر التقييم</button>
-            </div>
+            <!-- العروض المستوردة من الديسكورد ستظهر هنا -->
         </div>
     </main>
 
@@ -264,26 +225,21 @@
         <div class="auth-container">
             <button class="close-btn" onclick="closeAuthModal()"><i class="fa-solid fa-times"></i></button>
             <h2 style="text-align: center; margin-bottom: 25px; color: var(--primary-glow); font-size: 1.8rem;">مرحباً بك في مجتمعنا</h2>
-            
             <div class="social-logins">
                 <a href="/auth/discord" class="oauth-btn discord-btn"><i class="fa-brands fa-discord"></i> الدخول بواسطة Discord</a>
                 <a href="/auth/google" class="oauth-btn google-btn"><i class="fa-brands fa-google"></i> الدخول بواسطة Google</a>
             </div>
-
             <div class="auth-divider"><span>أو عبر البريد الإلكتروني</span></div>
-
             <div class="auth-tabs">
                 <button class="tab-btn active" onclick="switchAuthTab('login')">تسجيل الدخول</button>
                 <button class="tab-btn" onclick="switchAuthTab('register')">حساب جديد</button>
             </div>
-
             <form id="loginForm" class="auth-form active" onsubmit="submitLogin(event)">
                 <input type="email" id="loginEmail" placeholder="البريد الإلكتروني" required>
                 <input type="password" id="loginPassword" placeholder="كلمة المرور" required>
                 <p id="loginError" class="error-msg"></p>
                 <button type="submit" class="submit-auth-btn">تسجيل الدخول</button>
             </form>
-
             <form id="registerForm" class="auth-form" onsubmit="submitRegister(event)">
                 <input type="text" id="regUsername" placeholder="اسم المستخدم" required>
                 <input type="email" id="regEmail" placeholder="البريد الإلكتروني" required>
@@ -317,15 +273,56 @@
     </footer>
 
     <script>
-        const storeData = {
-            pubg: { title: "باقات شدات ببجي", icon: "fa-solid fa-parachute-box", items: [{ name: "660 شدة", priceUSD: 15, asia: 15 }, { name: "1800 شدة", priceUSD: 40, asia: 40 }] },
-            roblox: { title: "شحن روبوكس", icon: "fa-solid fa-gamepad", items: [{ name: "400 روبوكس", priceUSD: 9, asia: 10 }] },
-            minecraft: { title: "حسابات ماين كرافت", icon: "fa-solid fa-cubes", items: [{ name: "حساب أصلي", priceUSD: 20, asia: 20 }] },
-            gemini: { title: "اشتراكات Gemini", icon: "fa-solid fa-robot", items: [{ name: "اشتراك Advanced", priceUSD: 10, asia: 12 }] },
-            boosts: { title: "بوستات ديسكورد", icon: "fa-solid fa-rocket", items: [{ name: "بوست سيرفر", priceUSD: 7, asia: 7 }] },
+       // المتجر
+        let storeData = {
+            pubg: { 
+                title: "باقات شدات ببجي", 
+                icon: "fa-solid fa-parachute-box", 
+                items: [
+                    { name: "660 شدة", priceUSD: 15 },    // العرض الأول
+                    { name: "1800 شدة", priceUSD: 40 },
+                    { name: "3850 شدة", priceUSD: 75 },
+                    { name: "8100 شدة", priceUSD: 140 },  // العرض الثاني (الموجود في صورتك)
+                    { name: "16200 شدة", priceUSD: 280 }  // يمكنك إضافة المزيد هنا بنفس الطريقة
+                ]
+            },
+            roblox: { 
+                title: "شحن روبوكس", 
+                icon: "fa-solid fa-gamepad", 
+                items: [
+                    { name: "400 روبوكس", priceUSD: 9, asia: 10 },
+                    { name: "800 روبوكس", priceUSD: 18, asia: 19 },
+                    { name: "1700 روبوكس", priceUSD: 35, asia: 37 }] },
+            minecraft: { title: "حسابات ماين كرافت", icon: "fa-solid fa-cubes", items: [{ name: "حساب أصلي", priceUSD: 20 }] },
+            gemini: { title: "اشتراكات Gemini", icon: "fa-solid fa-robot", items: [{ name: "اشتراك Advanced", priceUSD: 10 }] },
+            boosts: { title: "بوستات ديسكورد", icon: "fa-solid fa-rocket", items: [{ name: "بوست سيرفر", priceUSD: 7 }] },
             nitro: { title: "ديسكورد نايترو", icon: "fa-brands fa-discord", comingSoon: true }
         };
 
+        // دالة العروض (تجلب المنتجات من البوت)
+        async function fetchDatabaseProducts() {
+            try {
+                const res = await fetch('/api/products');
+                const dbProducts = await res.json();
+                
+                if(dbProducts.length > 0) {
+                    storeData['bot_offers'] = {
+                        title: "🔥 عروض حصرية (مباشرة)",
+                        icon: "fa-solid fa-fire",
+                        items: dbProducts.map(p => ({ name: p.name, priceUSD: p.price }))
+                    };
+                    
+                    document.getElementById('mainProductsGrid').innerHTML += `
+                        <div class="product-card" onclick="openModal('bot_offers')" style="border-color: #ff4757; box-shadow: 0 10px 30px rgba(255, 71, 87, 0.2);">
+                            <i class="fa-solid fa-fire product-icon" style="color: #ff4757; filter: drop-shadow(0 0 15px rgba(255, 71, 87, 0.6));"></i>
+                            <h3 class="product-title" style="color: #ff4757;">العروض</h3>
+                        </div>
+                    `;
+                }
+            } catch (error) { console.error("خطأ في جلب المنتجات المباشرة:", error); }
+        }
+
+        // النوافذ
         function openAuthModal() { document.getElementById('authModal').classList.add('active'); }
         function closeAuthModal() { document.getElementById('authModal').classList.remove('active'); }
         
@@ -346,6 +343,15 @@
             if (!data) return;
             document.getElementById('pageTitle').innerText = data.title;
             document.getElementById('pageIcon').className = data.icon;
+            
+            if(category === 'bot_offers') {
+                document.getElementById('pageIcon').style.color = '#ff4757';
+                document.getElementById('pageTitle').style.color = '#ff4757';
+            } else {
+                document.getElementById('pageIcon').style.color = 'var(--primary-glow)';
+                document.getElementById('pageTitle').style.color = 'white';
+            }
+
             const list = document.getElementById('priceList');
             list.innerHTML = '';
 
@@ -353,14 +359,14 @@
                 list.innerHTML = `<h3 style="grid-column:1/-1; text-align:center; color: var(--primary-glow); padding: 3rem; font-size:2rem;"><i class="fa-solid fa-hourglass-half fa-spin"></i> قريباً جداً...</h3>`;
             } else {
                 data.items.forEach(item => {
+                    const displayPrice = item.priceUSD.toString().includes('$') ? item.priceUSD : `$${item.priceUSD}`;
                     list.innerHTML += `
                         <div class="price-card">
                             <div class="item-name"><i class="fa-solid fa-gem" style="color:var(--primary-glow);"></i> ${item.name}</div>
                             <div class="badges">
-                                <span class="badge badge-asia"><i class="fa-solid fa-sim-card"></i> السعر آسيا: $${item.asia}</span>
-                                <span class="badge badge-card"><i class="fa-solid fa-credit-card"></i> السعر فيزا: $${item.priceUSD}</span>
+                                <span class="badge badge-asia"><i class="fa-solid fa-sim-card"></i> السعر: ${displayPrice}</span>
                             </div>
-                            <button class="pay-btn-whatsapp" onclick="orderViaWhatsApp(this, '${item.name}', '${item.asia}', '${data.title}')">
+                            <button class="pay-btn-whatsapp" onclick="orderViaWhatsApp(this, '${item.name}', '${displayPrice}', '${data.title}')">
                                 <i class="fa-brands fa-whatsapp" style="font-size: 1.3rem;"></i> إتمام الطلب عبر واتساب
                             </button>
                         </div>
@@ -369,6 +375,7 @@
             }
             document.getElementById('detailsPage').classList.add('active');
         }
+        
         function closeModal() { document.getElementById('detailsPage').classList.remove('active'); }
 
         function orderViaWhatsApp(btnElement, itemName, price, categoryName) {
@@ -378,7 +385,7 @@
             btnElement.disabled = true;
 
             setTimeout(() => {
-                const message = `مرحباً متجر Soul Store،\nأود طلب منتج من قسم (${categoryName}).\n- اسم الباقة: *${itemName}*\n- السعر: ${price}$`;
+                const message = `مرحباً متجر Soul Store،\nأود طلب منتج من قسم (${categoryName}).\n- اسم الباقة: *${itemName}*\n- السعر: ${price}`;
                 const whatsappUrl = `https://wa.me/9647800841288?text=${encodeURIComponent(message)}`;
                 window.open(whatsappUrl, '_blank');
                 btnElement.innerHTML = originalContent;
@@ -388,37 +395,11 @@
             }, 800);
         }
 
-        async function submitLogin(e) {
-            e.preventDefault();
-            const email = document.getElementById('loginEmail').value;
-            const password = document.getElementById('loginPassword').value;
-            try {
-                const res = await fetch('/api/login', { method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({email, password}) });
-                const data = await res.json();
-                if(data.success) window.location.reload();
-                else document.getElementById('loginError').innerText = data.error;
-            } catch (err) { document.getElementById('loginError').innerText = "خطأ في الاتصال بالسيرفر."; }
-        }
+        // دوال تسجيل الدخول
+        async function submitLogin(e) { e.preventDefault(); const email = document.getElementById('loginEmail').value; const password = document.getElementById('loginPassword').value; try { const res = await fetch('/api/login', { method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({email, password}) }); const data = await res.json(); if(data.success) window.location.reload(); else document.getElementById('loginError').innerText = data.error; } catch (err) { document.getElementById('loginError').innerText = "خطأ في الاتصال بالسيرفر."; } }
+        async function submitRegister(e) { e.preventDefault(); const username = document.getElementById('regUsername').value; const email = document.getElementById('regEmail').value; const password = document.getElementById('regPassword').value; try { const res = await fetch('/api/register', { method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({username, email, password}) }); const data = await res.json(); if(data.success) window.location.reload(); else document.getElementById('regError').innerText = data.error; } catch (err) { document.getElementById('regError').innerText = "خطأ في الاتصال بالسيرفر."; } }
+        async function logout() { await fetch('/api/logout', { method: 'POST' }); window.location.reload(); }
 
-        async function submitRegister(e) {
-            e.preventDefault();
-            const username = document.getElementById('regUsername').value;
-            const email = document.getElementById('regEmail').value;
-            const password = document.getElementById('regPassword').value;
-            try {
-                const res = await fetch('/api/register', { method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({username, email, password}) });
-                const data = await res.json();
-                if(data.success) window.location.reload();
-                else document.getElementById('regError').innerText = data.error;
-            } catch (err) { document.getElementById('regError').innerText = "خطأ في الاتصال بالسيرفر."; }
-        }
-
-        async function logout() {
-            await fetch('/api/logout', { method: 'POST' });
-            window.location.reload();
-        }
-
-        // --- الدالة المطلوبة لجلب وعرض بيانات المستخدم والـ ID ---
         async function checkUserAuth() {
             try {
                 const res = await fetch('/api/user');
@@ -426,68 +407,17 @@
                 if (data.authenticated) {
                     document.getElementById('mainLoginBtn').style.display = 'none';
                     document.getElementById('userProfile').style.display = 'flex';
-                    
                     document.getElementById('userName').innerText = data.user.username;
                     document.getElementById('userId').innerText = "ID: " + data.user.id;
                     document.getElementById('userAvatar').src = data.user.avatar || 'https://cdn.discordapp.com/embed/avatars/0.png';
                 }
-            } catch (error) {
-                console.log("لا يوجد اتصال بالسيرفر.");
-            }
+            } catch (error) { console.log("لا يوجد اتصال بالسيرفر."); }
         }
 
-        // --- نظام التقييمات ---
-        let reviews = [
-            { name: "علي العراقي", text: "أسرع متجر شحنت منه بحياتي، ثقة مليون! 🔥", date: "2026/09/27" },
-            { name: "Hassan AL", text: "أسعار جداً ممتازة وتعامل راقي بالواتساب.", date: "2026/09/25" }
-        ];
-
-        function renderReviews() {
-            const container = document.getElementById('reviewsContainer');
-            container.innerHTML = '';
-            reviews.forEach(rev => {
-                container.innerHTML += `
-                    <div class="review-card">
-                        <div class="review-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
-                        <div class="review-user"><i class="fa-solid fa-user-circle"></i> ${rev.name} <span style="font-size:0.8rem; color:gray; font-weight:normal; float:left;">${rev.date}</span></div>
-                        <div class="review-text">"${rev.text}"</div>
-                    </div>
-                `;
-            });
-        }
-
-        function addReview() {
-            const input = document.getElementById('reviewTextInput');
-            const text = input.value.trim();
-            
-            if (text === "") {
-                alert("الرجاء كتابة التقييم أولاً!");
-                return;
-            }
-            
-            // التحقق إن كان المستخدم مسجلاً عبر دالة checkUserAuth أو متغير عام
-            const userNameElement = document.getElementById('userName').innerText;
-            if (!userNameElement) {
-                alert("الرجاء تسجيل الدخول أولاً لإضافة تقييمك!");
-                openAuthModal();
-                return;
-            }
-
-            const btn = document.querySelector('.btn-submit-review');
-            btn.innerHTML = '<i class="fa-solid fa-check"></i> تم النشر';
-            
-            setTimeout(() => {
-                const today = new Date().toLocaleDateString('en-GB');
-                reviews.unshift({ name: userNameElement, text: text, date: today });
-                input.value = '';
-                renderReviews();
-                btn.innerHTML = '<i class="fa-solid fa-paper-plane"></i> نشر التقييم';
-            }, 600);
-        }
-
-        window.onload = () => {
+        // تشغيل الدوال بمجرد فتح الصفحة
+        window.onload = async () => {
+            await fetchDatabaseProducts();
             checkUserAuth();
-            renderReviews();
         };
     </script>
 </body>
